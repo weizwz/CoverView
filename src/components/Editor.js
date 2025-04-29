@@ -206,19 +206,18 @@ class Editor extends React.Component {
               </div>
 
               {/* <div className="mx-4 my-1">
-						<h6>Download As</h6>
-						<select onChange={(e) => this.setState({ download: e.target.value })}
-							className="form-control input"
-							value={this.state.download}>
-							<option>PNG</option>
-							<option>JPEG</option>
-						</select>
-					</div> */}
+								<h6>Download As</h6>
+								<select onChange={(e) => this.setState({ download: e.target.value })}
+									className="form-control input"
+									value={this.state.download}>
+									<option>PNG</option>
+									<option>JPEG</option>
+								</select>
+							</div> */}
             </div>
 
-            {/* cover image preview */}
-
-            <div className=' flex m-2 flex-col items-center justify-center '>
+            <div className=' flex mx-2 flex-col items-center'>
+							<h2 className="text-lg p-2 font-inter font-semibold">封面预览</h2>
               <ComponentToImg downloadAs={this.state.download}>
                 <CoverImage {...this.state} />
               </ComponentToImg>

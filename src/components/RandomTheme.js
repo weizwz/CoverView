@@ -124,9 +124,7 @@ class RandomTheme extends React.Component {
   render() {
     return (
       <div className='flex flex-col justify-center'>
-        <div
-          className='shuffle-btn  flex justify-center items-center    p-2    cursor-pointer'
-          onClick={this.changeTheme}>
+        <div className='shuffle-btn  flex justify-center items-center p-2 cursor-pointer' onClick={this.changeTheme}>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             fill='currentColor'
