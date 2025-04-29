@@ -6,7 +6,11 @@ import Faq from './Faq'
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter
+      future={{
+        v7_relativeSplatPath: true,
+        v7_startTransition: true
+      }}>
       <Routes>
         <Route exact path='/' element={<Editor />} />
         <Route exact path='/faq' element={<Faq />} />
