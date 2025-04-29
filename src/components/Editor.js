@@ -25,7 +25,7 @@ const defaultSettings = {
 	platform: 'hashnode'
 };
 
-const devIconsUrl = "https://raw.githubusercontent.com/devicons/devicon/master/devicon.json"
+const devIconsUrl = "https://api.iconify.design/simple-icons/react.svg"
 
 class Editor extends React.Component {
 
