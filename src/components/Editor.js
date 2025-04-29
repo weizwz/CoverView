@@ -17,25 +17,25 @@ const defaultSettings = {
   download: 'PNG',
   author: 'weizwz',
   icon: defaultIcon,
-  devIconOptions: [defaultIcon],
+  devIconOptions: [defaultIcon, { label: 'custom', value: 'custom' }],
   font: 'font-Anek',
   theme: 'background',
   customIcon: '',
   platform: 'hashnode'
 }
 
-const devIconsUrl = 'https://api.iconify.design/simple-icons/react.svg'
+// const devIconsUrl = 'https://api.iconify.design/simple-icons/react.svg'
 
 class Editor extends React.Component {
   state = defaultSettings
   componentDidMount() {
     // console.log("Mount")
-    fetch(devIconsUrl)
-      .then((r) => r.json())
-      .then((data) => {
-        data.unshift({ name: 'upload your own' })
-        this.setState({ devIconOptions: data.map((item) => ({ value: item.name, label: item.name })) })
-      })
+    // fetch(devIconsUrl)
+    //   .then((r) => r.json())
+    //   .then((data) => {
+    //     data.unshift({ name: 'upload your own' })
+    //     this.setState({ devIconOptions: data.map((item) => ({ value: item.name, label: item.name })) })
+    //   })
   }
   handleReset = () => {
     this.setState({
