@@ -12,7 +12,7 @@ const UnsplashSearch = ({ largeImgPreview }) => {
       .getPhotos({
         query: searchText,
         page: 1,
-        per_page: 30
+        per_page: 12
         // orientation:'portrait'
       })
       .then((response) => {
@@ -41,7 +41,7 @@ const UnsplashSearch = ({ largeImgPreview }) => {
       .getPhotos({
         query: 'background',
         page: 1,
-        per_page: 30
+        per_page: 12
       })
       .then((response) => {
         // console.log(response.response.results);
