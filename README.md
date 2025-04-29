@@ -1,9 +1,8 @@
-# Coverview
+# CoverView
 
-> 一个简单的文章封面生成器
+一个简单的封面生成器，**fork于 [rutikwankhade/CoverView](https://github.com/rutikwankhade/CoverView)**
 
-- 原作者：[rutikwankhade/CoverView](https://github.com/rutikwankhade/CoverView)
-- 修改库：[weizwz/CoverView](https://github.com/weizwz/CoverView)
+在此基础上，进行汉化和定制本土化功能
 
 ## 功能修改
 
