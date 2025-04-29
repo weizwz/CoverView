@@ -12,7 +12,7 @@ import { THEMES } from "../utils/constants";
 const defaultIcon = { 'label': 'react', 'value': 'react' }
 
 const defaultSettings = {
-	title: "这是一个快速的文章封面生成器",
+	title: "免费、快速的封面生成器",
 	bgColor: "#949ee5",
 	pattern: "",
 	download: "PNG",
