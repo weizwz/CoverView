@@ -10,7 +10,7 @@ const Header = () => {
         <h1 className='font-semibold'>封面生成器</h1>
       </Link>
 
-      <div className='ml-auto md:mr-4 flex items-center '>
+      <div className='ml-auto flex items-center '>
         <Link to='/faq' className='text-gray-700 hover:text-gray-800 text-base font-Nunito mx-4'>
           <span className='hidden md:inline-block'>疑难解答</span>
         </Link>

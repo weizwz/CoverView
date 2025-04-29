@@ -63,7 +63,7 @@ class Editor extends React.Component {
         <Header />
 
         <ImgProvider>
-          <div className='flex md:flex-row flex-col  '>
+          <div className='flex md:flex-row flex-col'>
             <div className='bg-white flex flex-col h-100 md:w-3/12'>
               <div>
                 <div className='flex md:flex-row flex-col'>
@@ -216,8 +216,8 @@ class Editor extends React.Component {
 							</div> */}
             </div>
 
-            <div className=' flex mx-2 flex-col items-center'>
-							<h2 className="text-lg p-2 font-inter font-semibold">封面预览</h2>
+            <div className='flex-1 flex mx-2 flex-col items-center'>
+              <h2 className='text-lg p-2 font-inter font-semibold'>封面预览</h2>
               <ComponentToImg downloadAs={this.state.download}>
                 <CoverImage {...this.state} />
               </ComponentToImg>
@@ -225,8 +225,8 @@ class Editor extends React.Component {
 
             {/* themes section */}
 
-            <div className='md:w-60 px-4 border-dashed border-l-2 border-gray-100 bg-white'>
-              <div className='h-99 w-full flex flex-col justify-center'>
+            <div className='md:w-60 px-4 pb-4 border-dashed border-l-2 border-gray-100 bg-white'>
+              <div className='w-full flex flex-col justify-center'>
                 <div className='flex items-center'>
                   <h2 className='text-lg pl-2 font-inter font-semibold'>主题</h2>
                   <div className='ml-auto mr-1 p-2'>
@@ -234,16 +234,19 @@ class Editor extends React.Component {
                   </div>
                 </div>
 
-                <div className='  flex gap-2 flex-wrap justify-center overflow-y-scroll '>
+                <div
+                  className='flex gap-2 flex-wrap justify-center overflow-y-scroll'
+                  style={{ maxHeight: 'calc(100vh - 140px)' }}>
                   {THEMES.map((themePlaceholder) => (
                     <div
-                      className={`${themePlaceholder.label === this.state.theme ? 'border-blue-400 border-2' : ''}`}
+                      className={`${
+                        themePlaceholder.label === this.state.theme ? 'border-blue-400' : ''
+                      } p-1 overflow-hidden rounded-lg cursor-pointer border-2 hover:border-blue-400 duration-100`}
                       key={themePlaceholder.label}>
                       <img
                         src={themePlaceholder.preview}
                         alt={themePlaceholder.label}
                         onClick={(e) => this.setState({ theme: themePlaceholder.label })}
-                        className=' cursor-pointer border border-gray-100 hover:border-gray-200 hover:scale-105 duration-300 '
                       />
                     </div>
                   ))}
