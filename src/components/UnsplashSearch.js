@@ -5,7 +5,7 @@ import { ImgContext } from '../utils/ImgContext'
 const UnsplashSearch = ({ largeImgPreview }) => {
   const [imageList, setImageList] = useState([])
   const [searchText, setSearchText] = useState('background')
-  const { unsplashImage, setUnsplashImage } = useContext(ImgContext)
+  const { setUnsplashImage } = useContext(ImgContext)
 
   const searchImages = () => {
     unsplash.search
