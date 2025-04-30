@@ -4,26 +4,20 @@ const OutlineTheme = ({ config }) => {
 
   return (
     <div className='w-full h-full bg-white '>
-      <div
-        className={`overflow-y-hidden flex flex-col text-gray-800 px-10 h-full`}
-        style={{ backgroundColor: bgColor }}>
-        <div className={`${font} rounded-2xl py-6 flex flex-col  `}>
+      <div className={`overflow-y-hidden text-gray-800 px-10 h-full`} style={{ backgroundColor: bgColor }}>
+        <div className={`${font} h-full rounded-2xl py-6 flex flex-col content-center`}>
           {customIcon ? (
-            <div className=' m-6'>
-              <img
-                src={customIcon}
-                alt='img'
-                className='rounded-full object-cover w-24 h-24 bg-white p-1 border-white'
-              />
+            <div className='m-6'>
+              <img src={customIcon} alt='img' className='rounded-full object-cover w-24 h-24 bg-white p-1 border-white' />
             </div>
           ) : (
-            <div className='  mr-auto ml-2 items-center justify-center flex'>
-              <i className={`devicon-${icon.value}-plain text-white p-4 dev-icon text-8xl`}></i>
+            <div className='p-2 px-6 items-center flex'>
+              <img className='w-24 h-24' src={`https://api.iconify.design/simple-icons/${icon.value}.svg?color=%23fff`} alt={`${icon.label} icon`} />
             </div>
           )}
-          <h1 className='text-3xl p-4 text-white md:text-5xl  font-bold '>{title}</h1>
+          <h1 className='text-3xl p-6 text-white md:text-5xl font-bold'>{title}</h1>
 
-          <div className={`${font} w-full h-16  flex  mt-auto mb-0 p-2 px-6  items-center `}>
+          <div className={`${font} w-full flex p-2 px-6 mb-12 items-center`}>
             <h2 className='text-2xl text-white font-semibold'>{author}</h2>
           </div>
         </div>

@@ -44,7 +44,7 @@ const BackgroundTheme = ({ config }) => {
                   </div>
                 ) : (
                   <div className='mr-2 items-center justify-center flex'>
-                    <i className={`devicon-${icon.value}-plain text-white dev-icon text-3xl`}></i>
+                    <img className='w-8 h-8' src={`https://api.iconify.design/simple-icons/${icon.value}.svg?color=%23fff`} alt={`${icon.label} icon`} />
                   </div>
                 )}
               </div>

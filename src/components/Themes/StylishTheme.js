@@ -23,7 +23,7 @@ const StylishTheme = ({ config }) => {
                 </div>
               ) : (
                 <div className='mr-2 items-center justify-center flex'>
-                  <i className={`devicon-${icon.value}-plain  dev-icon text-3xl`}></i>
+                  <img className='w-8 h-8' src={`https://api.iconify.design/simple-icons/${icon.value}.svg`} alt={`${icon.label} icon`} />
                 </div>
               )}
               <h2 className='text-xl  font-semibold text-left '>{author}</h2>

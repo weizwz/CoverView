@@ -1,7 +1,7 @@
 import React from 'react'
 import CoverImage from './CoverImage'
 import ComponentToImg from './ComponentToImg'
-import Select from 'react-select'
+import IconSelect from './IconSelect'
 import RandomTheme from './RandomTheme'
 import { ImgProvider } from '../utils/ImgContext'
 import Header from './Header'
@@ -17,45 +17,24 @@ const defaultSettings = {
   download: 'PNG',
   author: '唯知笔记',
   icon: defaultIcon,
-  devIconOptions: [defaultIcon],
   font: 'font-Anek',
   theme: 'modern',
   customIcon: '',
   platform: 'hashnode'
 }
 
-// const devIconsUrl = 'https://api.iconify.design/simple-icons/react.svg'
-
 class Editor extends React.Component {
   state = defaultSettings
-  componentDidMount() {
-    // console.log("Mount")
-    // fetch(devIconsUrl)
-    //   .then((r) => r.json())
-    //   .then((data) => {
-    //     data.unshift({ name: 'upload your own' })
-    //     this.setState({ devIconOptions: data.map((item) => ({ value: item.name, label: item.name })) })
-    //   })
-  }
   handleReset = () => {
     this.setState({
       ...defaultSettings,
-      devIconOptions: this.state.devIconOptions
+      icon: defaultIcon,
     })
   }
 
   getRandomTheme = (theme, Pattern) => {
     this.setState({ bgColor: theme.bgColor, borderColor: theme.bdColor, pattern: Pattern })
   }
-
-  formatOptionLabel = ({ value, label }) => (
-    <div className='flex'>
-      <span className='mr-2'>{label}</span>
-      <div className='ml-auto mr-2'>
-        <i className={`devicon-${value}-plain dev-icon text-2xl`}></i>
-      </div>
-    </div>
-  )
 
   render() {
     return (
@@ -92,12 +71,9 @@ class Editor extends React.Component {
 
                       <div className='flex flex-col m-2 '>
                         <span className='font-medium text-sm pb-1'>图标</span>
-                        <Select
-                          value={this.state.icon}
+                        <IconSelect
+                          defaultIcon={defaultIcon}
                           onChange={(selectedOption) => this.setState({ icon: selectedOption })}
-                          options={this.state.devIconOptions}
-                          formatOptionLabel={this.formatOptionLabel}
-                          className='outline-none focus:outline-none items-center text-lg text-gray-700'
                         />
                       </div>
                       <div className='w-full'>
@@ -145,33 +121,33 @@ class Editor extends React.Component {
                       </div>
 
                       <div className='flex items-center'>
-                        <div className="flex flex-col m-2 w-1/2">
-													<span className="font-medium text-sm pb-1">纹理</span>
-													<select
-														onChange={(e) => this.setState({ pattern: e.target.value })}
-														className="focus:outline-none border text-lg p-2 rounded"
-														value={this.state.pattern}>
-														<option>none</option>
-														<option>graph-paper</option>
-														<option>jigsaw</option>
-														<option>hideout</option>
-														<option>dots</option>
-														<option>falling-triangles</option>
-														<option>circuit-board</option>
-														<option>temple</option>
-														<option>anchors</option>
-														<option>brickwall</option>
-														<option>overlapping-circles</option>
-														<option>wiggle</option>
-														<option>tic-tac-toe</option>
-														<option>leaf</option>
-														<option>bubbles</option>
-														<option>squares</option>
-														<option>explorer</option>
-														<option>jupiter</option>
-														<option>sun</option>
-													</select>
-												</div>
+                        <div className='flex flex-col m-2 w-1/2'>
+                          <span className='font-medium text-sm pb-1'>纹理</span>
+                          <select
+                            onChange={(e) => this.setState({ pattern: e.target.value })}
+                            className='focus:outline-none border text-lg p-2 rounded'
+                            value={this.state.pattern}>
+                            <option>none</option>
+                            <option>graph-paper</option>
+                            <option>jigsaw</option>
+                            <option>hideout</option>
+                            <option>dots</option>
+                            <option>falling-triangles</option>
+                            <option>circuit-board</option>
+                            <option>temple</option>
+                            <option>anchors</option>
+                            <option>brickwall</option>
+                            <option>overlapping-circles</option>
+                            <option>wiggle</option>
+                            <option>tic-tac-toe</option>
+                            <option>leaf</option>
+                            <option>bubbles</option>
+                            <option>squares</option>
+                            <option>explorer</option>
+                            <option>jupiter</option>
+                            <option>sun</option>
+                          </select>
+                        </div>
 
                         <div className='flex flex-col m-2 w-full'>
                           <span className='font-medium text-sm pb-1'>尺寸</span>
@@ -233,8 +209,7 @@ class Editor extends React.Component {
                   </div>
                 </div>
 
-                <div
-                  className='h-theme flex gap-2 flex-wrap justify-center overflow-y-scroll'>
+                <div className='h-theme flex gap-2 flex-wrap justify-center overflow-y-scroll'>
                   {THEMES.map((themePlaceholder) => (
                     <div
                       className={`${

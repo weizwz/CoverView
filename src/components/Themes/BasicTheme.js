@@ -14,14 +14,14 @@ const BasicTheme = ({ config }) => {
           </div>
         </div>
 
-        <div className='flex mx-4  p-4 rounded-xl items-center bg-white'>
+        <div className='flex p-4 px-12 rounded-xl items-center bg-white'>
           {customIcon ? (
             <div className='w-12 h-12'>
               <img src={customIcon} alt='img' className='rounded-full bg-white p-1 border-white' />
             </div>
           ) : (
             <div className='mr-auto ml-2 items-center justify-center flex'>
-              <i className={`devicon-${icon.value}-plain  p-4 dev-icon text-5xl`}></i>
+              <img className='w-8 h-8' src={`https://api.iconify.design/simple-icons/${icon.value}.svg`} alt={`${icon.label} icon`} />
             </div>
           )}
 
