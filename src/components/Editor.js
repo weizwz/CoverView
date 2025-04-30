@@ -15,9 +15,9 @@ const defaultSettings = {
   bgColor: '#409eff',
   pattern: '',
   download: 'PNG',
-  author: 'weizwz',
+  author: '唯知笔记',
   icon: defaultIcon,
-  devIconOptions: [defaultIcon, { label: 'custom', value: 'custom' }],
+  devIconOptions: [defaultIcon],
   font: 'font-Anek',
   theme: 'background',
   customIcon: '',
@@ -59,15 +59,15 @@ class Editor extends React.Component {
 
   render() {
     return (
-      <div className='max-w-[1400px]  mx-auto'>
+      <div className='max-w-[1440px]  mx-auto'>
         <Header />
 
         <ImgProvider>
           <div className='flex md:flex-row flex-col'>
-            <div className='bg-white flex flex-col h-100 md:w-3/12'>
+            <div className='h-main bg-white flex flex-col md:w-3/12 md:border-dashed md:border-r-2 border-gray-100'>
               <div>
                 <div className='flex md:flex-row flex-col'>
-                  <div className='bg-white font-Inter  border-dashed border-r-2 border-gray-100 w-full p-4 '>
+                  <div className='bg-white font-Inter w-full p-4 '>
                     <div>
                       <div className='m-2 flex flex-col'>
                         <span className='font-medium text-sm pb-1'>标题</span>
@@ -216,7 +216,7 @@ class Editor extends React.Component {
 							</div> */}
             </div>
 
-            <div className='flex-1 flex px-8 flex-col items-center bg-gray-50'>
+            <div className='h-main flex-1 flex px-8 flex-col items-center bg-gray-50'>
               <h2 className='text-lg p-2 font-inter font-semibold'>封面预览</h2>
               <ComponentToImg downloadAs={this.state.download}>
                 <CoverImage {...this.state} />
@@ -225,8 +225,8 @@ class Editor extends React.Component {
 
             {/* themes section */}
 
-            <div className='md:w-60 px-4 pb-4 border-dashed border-l-2 border-gray-100 bg-white'>
-              <div className='w-full flex flex-col justify-center'>
+            <div className='h-main md:w-60 px-4 pb-4 border-dashed border-l-2 border-gray-100 bg-white'>
+              <div className='h-full w-full flex flex-col justify-center'>
                 <div className='flex items-center'>
                   <h2 className='text-lg pl-2 font-inter font-semibold'>主题</h2>
                   <div className='ml-auto mr-1 p-2'>
@@ -235,8 +235,7 @@ class Editor extends React.Component {
                 </div>
 
                 <div
-                  className='flex gap-2 flex-wrap justify-center overflow-y-scroll'
-                  style={{ maxHeight: 'calc(100vh - 134px)' }}>
+                  className='h-theme flex gap-2 flex-wrap justify-center overflow-y-scroll'>
                   {THEMES.map((themePlaceholder) => (
                     <div
                       className={`${

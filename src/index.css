@@ -21,6 +21,15 @@
   height: 35rem;
 }
 
+@media (min-width: 768px) {
+  .h-main {
+    min-height: calc(100vh - 66px);
+  }
+  .h-theme {
+    max-height: calc(100vh - 134px);
+  }
+}
+
 ::-webkit-scrollbar {
   /* width: 8px; */
   display: none;
