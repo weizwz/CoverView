@@ -3,10 +3,14 @@ const ImgContext = createContext();
 
 const ImgProvider = ({ children }) => {
   const [unsplashImage, setUnsplashImage] = useState();
-  const [searchText, setSearchText] = useState("background");
+  const [param, setParam] = useState({
+    query: 'background',
+    page: 1,
+    per_page: 12
+  });
     
   return (
-    <ImgContext.Provider value={{ unsplashImage, setUnsplashImage, searchText, setSearchText }}>
+    <ImgContext.Provider value={{ unsplashImage, setUnsplashImage, param, setParam }}>
       {children}
     </ImgContext.Provider>
   );

@@ -4,24 +4,17 @@ import { ImgContext } from '../utils/ImgContext'
 
 const UnsplashSearch = ({ largeImgPreview }) => {
   const [imageList, setImageList] = useState([])
-  const { searchText, setSearchText, setUnsplashImage } = useContext(ImgContext)
+  const { param, setParam, setUnsplashImage } = useContext(ImgContext)
 
   const searchImages = () => {
-    unsplash.search
-      .getPhotos({
-        query: searchText,
-        page: 1,
-        per_page: 12
-        // orientation:'portrait'
-      })
-      .then((response) => {
-        setImageList(response.response.results)
-      })
+    unsplash.search.getPhotos(param).then((response) => {
+      setImageList(response.response.results)
+    })
   }
 
   const selectImage = (image) => {
     setUnsplashImage({
-      searchText: searchText,
+      searchText: param.query,
       url: image.urls.regular,
       downloadLink: image.links.download_location
     })
@@ -29,36 +22,30 @@ const UnsplashSearch = ({ largeImgPreview }) => {
 
   const handleSearchSubmit = (e) => {
     e.preventDefault()
-    searchImages(searchText)
+    searchImages(param.query)
   }
 
   useEffect(() => {
-    unsplash.search
-      .getPhotos({
-        query: searchText,
-        page: 1,
-        per_page: 12
-      })
-      .then((response) => {
-        setImageList(response.response.results)
-      })
-  }, [searchText])
+    unsplash.search.getPhotos(param).then((response) => {
+      setImageList(response.response.results)
+    })
+  }, [param])
 
   return (
     <div className='w-full h-full flex flex-col bg-white items-center justify-center'>
-      <div className='w-full flex items-center'>
+      <div className='w-full flex items-center mb-4'>
         <form
           onSubmit={(e) => handleSearchSubmit(e)}
-          className=' mx-auto w-full flex bg-gray-50 rounded-full border border-gray-50 mb-4'>
+          className=' mx-auto w-full flex bg-gray-50 rounded-full border border-gray-50'>
           <input
             type='text'
-            value={searchText}
+            value={param.query}
             placeholder='Search photos'
             className='focus:outline-none w-full text-lg bg-gray-50 p-1 px-4  rounded-full'
-            onChange={(e) => setSearchText(e.target.value)}
+            onChange={(e) => setParam({ ...param, query: e.target.value })}
           />
 
-          <button type='submit' onClick={() => searchImages(searchText)}>
+          <button type='submit' onClick={() => searchImages(param.query)}>
             <svg
               className='w-9 h-9 ml-auto p-2 bg-gray-700 hover:bg-gray-800 text-white rounded-full'
               fill='none'
@@ -75,7 +62,11 @@ const UnsplashSearch = ({ largeImgPreview }) => {
         </form>
       </div>
 
-      <div className={`overflow-y-scroll overflow-x-hidden grid gap-4 ${largeImgPreview ? 'grid-cols-4' : 'grid-cols-3'}`} style={{ height: 'calc(100% - 54px)' }}>
+      <div
+        className={`overflow-y-scroll overflow-x-hidden rounded-lg mb-4 grid gap-4 ${
+          largeImgPreview ? 'grid-cols-4' : 'grid-cols-3'
+        }`}
+        style={{ height: 'calc(100% - 54px)' }}>
         {imageList.map((image) => {
           return (
             <div
@@ -93,6 +84,32 @@ const UnsplashSearch = ({ largeImgPreview }) => {
             </div>
           )
         })}
+      </div>
+
+      <div className='flex items-center justify-center'>
+        <button
+          className={` bg-blue-400 hover:bg-blue-500 text-white rounded-lg text-base p-1 px-4 mx-auto border-none mr-4 disabled:bg-blue-200`}
+          disabled={param.page === 1}
+          onClick={() => {
+            setParam({ ...param, page: 1 })
+          }}>
+          首页
+        </button>
+        <button
+          className={` bg-blue-400 hover:bg-blue-500 text-white rounded-lg text-base p-1 px-4 mx-auto border-none mr-4 disabled:bg-blue-200`}
+          disabled={param.page === 1}
+          onClick={() => {
+            setParam({ ...param, page: param.page > 1 ? param.page - 1 : 1 })
+          }}>
+          上一页
+        </button>
+        <button
+          className=' bg-blue-400 hover:bg-blue-500 text-white rounded-lg text-base p-1 px-4 mx-auto border'
+          onClick={() => {
+            setParam({ ...param, page: param.page + 1 })
+          }}>
+          下一页
+        </button>
       </div>
     </div>
   )
