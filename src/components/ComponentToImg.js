@@ -52,7 +52,7 @@ const ComponentToImg = (props) => {
 
   return (
     <React.Fragment>
-      <div ref={componentRef}>{props.children}</div>
+      <div ref={componentRef} className='p-4 bg-white'>{props.children}</div>
       <button
         className='border p-2 bg-gray-700 hover:bg-gray-800 flex items-center text-white text-xl rounded-lg m-4 px-4'
         onClick={() => downloadImage()}>

@@ -7,10 +7,10 @@ const BackgroundTheme = ({ config }) => {
   const { unsplashImage, setUnsplashImage } = useContext(ImgContext)
 
   return (
-    <div className=' bg-white '>
-      <div className={` overflow-y-hidden flex flex-col`} style={{ backgroundColor: bgColor }}>
-        <div className='flex flex-row  items-center bg-white  justify-center '>
-          <div className='w-full'>
+    <div className='bg-white w-full h-full'>
+      <div className='overflow-y-hidden flex flex-col w-full h-full' style={{ backgroundColor: bgColor }}>
+        <div className=' bg-white w-full h-full'>
+          <div className='w-full h-full'>
             {unsplashImage ? (
               <div className='relative flex group'>
                 <div className='h-max w-full '>
@@ -22,7 +22,7 @@ const BackgroundTheme = ({ config }) => {
                 </div>
 
                 <div className='h-full bg-gray-800/60 absolute top-0 right-0 left-0 '>
-                  <button onClick={() => setUnsplashImage('')} className='absolute top-4 right-4 cursor-pointer'>
+                  <button onClick={() => setUnsplashImage()} className='absolute top-4 right-4 cursor-pointer'>
                     <svg
                       className='group-hover:inline-block hidden w-8 h-8 text-gray-800 bg-white p-2 rounded-full z-10'
                       fill='none'
@@ -55,7 +55,7 @@ const BackgroundTheme = ({ config }) => {
                 </div>
               </div>
             ) : (
-              <div className='flex flex-col p-2  bg-white items-center justify-center'>
+              <div className='w-full h-full flex flex-col bg-white items-center justify-center'>
                 <UnsplashSearch largeImgPreview />
               </div>
             )}

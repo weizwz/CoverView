@@ -216,7 +216,7 @@ class Editor extends React.Component {
 							</div> */}
             </div>
 
-            <div className='flex-1 flex mx-2 flex-col items-center'>
+            <div className='flex-1 flex px-8 flex-col items-center bg-gray-50'>
               <h2 className='text-lg p-2 font-inter font-semibold'>封面预览</h2>
               <ComponentToImg downloadAs={this.state.download}>
                 <CoverImage {...this.state} />
@@ -236,7 +236,7 @@ class Editor extends React.Component {
 
                 <div
                   className='flex gap-2 flex-wrap justify-center overflow-y-scroll'
-                  style={{ maxHeight: 'calc(100vh - 140px)' }}>
+                  style={{ maxHeight: 'calc(100vh - 134px)' }}>
                   {THEMES.map((themePlaceholder) => (
                     <div
                       className={`${

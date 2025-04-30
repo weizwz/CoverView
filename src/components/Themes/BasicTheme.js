@@ -4,7 +4,7 @@ const BasicTheme = ({ config }) => {
   const { title, bgColor, pattern, author, icon, font, customIcon } = config
 
   return (
-    <div className=' bg-white w-full h-full '>
+    <div className='bg-white w-full h-full'>
       <div
         className={`overflow-y-hidden flex  text-gray-800 items-center h-full ${pattern} `}
         style={{ backgroundColor: bgColor }}>
@@ -15,9 +15,9 @@ const BasicTheme = ({ config }) => {
             </div>
           </div>
 
-          <div className=' flex mx-4  p-4 rounded-xl items-center bg-white'>
+          <div className='flex mx-4  p-4 rounded-xl items-center bg-white'>
             {customIcon ? (
-              <div className='w-12 h-12  '>
+              <div className='w-12 h-12'>
                 <img src={customIcon} alt='img' className='rounded-full bg-white p-1 border-white' />
               </div>
             ) : (

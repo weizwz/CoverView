@@ -4,8 +4,7 @@ import { ImgContext } from '../utils/ImgContext'
 
 const UnsplashSearch = ({ largeImgPreview }) => {
   const [imageList, setImageList] = useState([])
-  const [searchText, setSearchText] = useState('background')
-  const { setUnsplashImage } = useContext(ImgContext)
+  const { searchText, setSearchText, setUnsplashImage } = useContext(ImgContext)
 
   const searchImages = () => {
     unsplash.search
@@ -16,17 +15,14 @@ const UnsplashSearch = ({ largeImgPreview }) => {
         // orientation:'portrait'
       })
       .then((response) => {
-        // console.log(response.response.results);
         setImageList(response.response.results)
       })
   }
 
   const selectImage = (image) => {
     setUnsplashImage({
+      searchText: searchText,
       url: image.urls.regular,
-      name: image.user.name,
-      avatar: image.user.profile_image.small,
-      profile: `${image.user.links.html}?utm_source=https://coverview.vercel.app&utm_medium=referral`,
       downloadLink: image.links.download_location
     })
   }
@@ -39,34 +35,33 @@ const UnsplashSearch = ({ largeImgPreview }) => {
   useEffect(() => {
     unsplash.search
       .getPhotos({
-        query: 'background',
+        query: searchText,
         page: 1,
         per_page: 12
       })
       .then((response) => {
-        // console.log(response.response.results);
         setImageList(response.response.results)
       })
-  }, [])
+  }, [searchText])
 
   return (
     <div className='w-full h-full'>
-      <div className='flex flex-col p-2  bg-white items-center justify-center'>
-        <div className='flex items-center w-full px-6 '>
+      <div className='w-full h-full flex flex-col bg-white items-center justify-center'>
+        <div className='w-full flex items-center'>
           <form
             onSubmit={(e) => handleSearchSubmit(e)}
-            className=' mx-auto w-full flex bg-gray-50 rounded-full border border-gray-50 mb-2'>
+            className=' mx-auto w-full flex bg-gray-50 rounded-full border border-gray-50 mb-4'>
             <input
               type='text'
               value={searchText}
               placeholder='Search photos'
-              className='focus:outline-none w-full text-lg bg-gray-50  p-1 px-4  rounded-full  '
+              className='focus:outline-none w-full text-lg bg-gray-50 p-1 px-4  rounded-full'
               onChange={(e) => setSearchText(e.target.value)}
             />
 
             <button type='submit' onClick={() => searchImages(searchText)}>
               <svg
-                className='w-9 h-9 ml-auto  p-2 bg-gray-700 hover:bg-gray-800 text-white rounded-full'
+                className='w-9 h-9 ml-auto p-2 bg-gray-700 hover:bg-gray-800 text-white rounded-full'
                 fill='none'
                 stroke='currentColor'
                 viewBox='0 0 24 24'
@@ -81,12 +76,12 @@ const UnsplashSearch = ({ largeImgPreview }) => {
           </form>
         </div>
 
-        <div className='overflow-y-scroll w-full pb-12 overflow-x-hidden h-max justify-center flex flex-wrap'>
+        <div className={`overflow-y-scroll overflow-x-hidden grid gap-4 ${largeImgPreview ? 'grid-cols-3' : 'grid-cols-2'}`} style={{ height: 'calc(100% - 54px)' }}>
           {imageList.map((image) => {
             return (
               <div
                 key={image.id}
-                className={`rounded-lg relative cursor-pointer m-1 ${largeImgPreview ? ' h-44 w-60' : 'h-24 w-40'}`}>
+                className={`rounded-lg relative cursor-pointer w-full h-44`}>
                 <span className='font-Inter top-2 left-2 absolute text-sm font-semibold text-white opacity-50 '>
                   Click to Select
                 </span>

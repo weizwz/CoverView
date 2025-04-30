@@ -40,7 +40,7 @@ const StylishTheme = ({ config }) => {
                   alt='preview'
                 />
 
-                <button onClick={() => setUnsplashImage('')} className='absolute top-4 right-4 cursor-pointer'>
+                <button onClick={() => setUnsplashImage()} className='absolute top-4 right-4 cursor-pointer'>
                   <svg
                     className='group-hover:inline-block hidden w-8 h-8 text-gray-800 bg-white p-2 rounded-full z-10'
                     fill='none'
