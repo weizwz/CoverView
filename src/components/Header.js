@@ -12,7 +12,7 @@ const Header = () => {
 
       <div className='ml-auto flex items-center '>
         <Link to='/faq' className='text-gray-700 hover:text-gray-800 text-base font-Nunito mx-4'>
-          <span className='hidden md:inline-block'>疑难解答</span>
+          <span className='hidden md:inline-block'>使用说明</span>
         </Link>
         <a
           href='https://github.com/weizwz/CoverView'

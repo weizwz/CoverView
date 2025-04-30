@@ -3,13 +3,13 @@ import Header from './Header'
 const Faq = () => {
 
   return (
-    <div className='max-w-[1400px]  mx-auto'>
+    <div className='max-w-[1440px]  mx-auto'>
 
       <Header />
 
       <div className='mx-auto md:py-20'>
 
-        <h1 className='font-bold md:text-4xl  text-2xl font-Anek text-center'>疑难解答</h1>
+        <h1 className='font-bold md:text-4xl  text-2xl font-Anek text-center'>使用说明</h1>
 
         <div className='flex flex-wrap justify-center mt-20 font-Inter'>
           <div className='md:w-5/12 m-4 '>
