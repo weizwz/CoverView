@@ -1,16 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react'
 import unsplash from '../utils/unsplashConfig'
 import { ImgContext } from '../utils/ImgContext'
+import UnsplashImage from './UnsplashImage'
 
 const UnsplashSearch = ({ largeImgPreview }) => {
   const [imageList, setImageList] = useState([])
   const { param, setParam, setUnsplashImage } = useContext(ImgContext)
-
-  const searchImages = () => {
-    unsplash.search.getPhotos(param).then((response) => {
-      setImageList(response.response.results)
-    })
-  }
+  const [text, setText] = useState(param.query)
 
   const selectImage = (image) => {
     setUnsplashImage({
@@ -22,10 +18,12 @@ const UnsplashSearch = ({ largeImgPreview }) => {
 
   const handleSearchSubmit = (e) => {
     e.preventDefault()
-    searchImages(param.query)
   }
 
   useEffect(() => {
+    if (param.query === '') {
+      return
+    }
     unsplash.search.getPhotos(param).then((response) => {
       setImageList(response.response.results)
     })
@@ -39,13 +37,13 @@ const UnsplashSearch = ({ largeImgPreview }) => {
           className=' mx-auto w-full flex bg-gray-50 rounded-full border border-gray-50'>
           <input
             type='text'
-            value={param.query}
-            placeholder='Search photos'
+            value={text}
+            placeholder='请输入搜索关键词'
             className='focus:outline-none w-full text-lg bg-gray-50 p-1 px-4  rounded-full'
-            onChange={(e) => setParam({ ...param, query: e.target.value })}
+            onChange={(e) => setText(e.target.value)}
           />
 
-          <button type='submit' onClick={() => searchImages(param.query)}>
+          <button type='submit' onClick={() => setParam({ ...param, query: text, page: 1 })}>
             <svg
               className='w-9 h-9 ml-auto p-2 bg-gray-700 hover:bg-gray-800 text-white rounded-full'
               fill='none'
@@ -62,28 +60,21 @@ const UnsplashSearch = ({ largeImgPreview }) => {
         </form>
       </div>
 
-      <div
-        className={`overflow-y-scroll overflow-x-hidden rounded-lg mb-4 grid gap-4 ${
-          largeImgPreview ? 'grid-cols-4' : 'grid-cols-3'
-        }`}
-        style={{ height: 'calc(100% - 54px)' }}>
-        {imageList.map((image) => {
-          return (
-            <div
-              key={image.id}
-              className={`rounded-lg relative cursor-pointer w-full ${largeImgPreview ? 'h-32' : 'h-20'}`}>
-              <span className='font-Inter top-2 left-2 absolute text-sm font-semibold text-white opacity-50 '>
-                点击选择此照片
-              </span>
-              <img
-                src={image.urls.regular}
-                alt={image.alt_description}
-                onClick={() => selectImage(image)}
-                className='rounded-lg object-cover h-full w-full'
-              />
-            </div>
-          )
-        })}
+      <div className={`overflow-y-scroll overflow-x-hidden rounded-lg mb-4`} style={{ height: 'calc(100% - 54px)' }}>
+        <div className={`grid gap-4 ${largeImgPreview ? 'grid-cols-4' : 'grid-cols-3'}`}>
+          {imageList.map((image) => {
+            return (
+              <div
+                key={image.id}
+                className={`rounded-lg relative cursor-pointer w-full ${largeImgPreview ? 'h-32' : 'h-20'}`}>
+                <span className='font-Inter top-2 left-2 absolute z-10 text-sm font-semibold text-white opacity-50'>
+                  点击选择此照片
+                </span>
+                <UnsplashImage src={image.urls.regular} alt={image.alt_description} onClick={() => selectImage(image)} />
+              </div>
+            )
+          })}
+        </div>
       </div>
 
       <div className='flex items-center justify-center'>
