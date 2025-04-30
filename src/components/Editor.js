@@ -59,7 +59,7 @@ class Editor extends React.Component {
 
   render() {
     return (
-      <div className='max-w-[1440px]  mx-auto'>
+      <div className='md:max-w-[1440px] mx-auto'>
         <Header />
 
         <ImgProvider>
@@ -225,8 +225,8 @@ class Editor extends React.Component {
 
             {/* themes section */}
 
-            <div className='h-main md:w-60 px-4 pb-4 border-dashed border-l-2 border-gray-100 bg-white'>
-              <div className='h-full w-full flex flex-col justify-center'>
+            <div className='h-main md:w-60 px-4 pb-4 md:border-dashed md:border-l-2 border-gray-100 bg-white'>
+              <div className='h-full w-full'>
                 <div className='flex items-center'>
                   <h2 className='text-lg pl-2 font-inter font-semibold'>主题</h2>
                   <div className='ml-auto mr-1 p-2'>
