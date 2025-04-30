@@ -19,7 +19,7 @@ const defaultSettings = {
   icon: defaultIcon,
   devIconOptions: [defaultIcon],
   font: 'font-Anek',
-  theme: 'background',
+  theme: 'modern',
   customIcon: '',
   platform: 'hashnode'
 }
@@ -64,7 +64,7 @@ class Editor extends React.Component {
 
         <ImgProvider>
           <div className='flex md:flex-row flex-col'>
-            <div className='h-main bg-white flex flex-col md:w-3/12 md:border-dashed md:border-r-2 border-gray-100'>
+            <div className='flex-none h-main bg-white flex flex-col md:w-3/12 md:border-dashed md:border-r-2 border-gray-100'>
               <div>
                 <div className='flex md:flex-row flex-col'>
                   <div className='bg-white font-Inter w-full p-4 '>
@@ -145,13 +145,12 @@ class Editor extends React.Component {
                       </div>
 
                       <div className='flex items-center'>
-                        {/* <div className="flex flex-col m-2 w-1/2">
-													<span className="font-medium text-sm pb-1">Pattern</span>
+                        <div className="flex flex-col m-2 w-1/2">
+													<span className="font-medium text-sm pb-1">纹理</span>
 													<select
 														onChange={(e) => this.setState({ pattern: e.target.value })}
 														className="focus:outline-none border text-lg p-2 rounded"
 														value={this.state.pattern}>
-
 														<option>none</option>
 														<option>graph-paper</option>
 														<option>jigsaw</option>
@@ -172,10 +171,10 @@ class Editor extends React.Component {
 														<option>jupiter</option>
 														<option>sun</option>
 													</select>
-												</div> */}
+												</div>
 
                         <div className='flex flex-col m-2 w-full'>
-                          <span className='font-medium text-sm pb-1'>平台</span>
+                          <span className='font-medium text-sm pb-1'>尺寸</span>
 
                           <select
                             onChange={(e) => this.setState({ platform: e.target.value })}
@@ -216,7 +215,7 @@ class Editor extends React.Component {
 							</div> */}
             </div>
 
-            <div className='h-main flex-1 flex px-8 flex-col items-center bg-gray-50'>
+            <div className='h-main flex flex-1 px-8 flex-col items-center bg-gray-50'>
               <h2 className='text-lg p-2 font-inter font-semibold'>封面预览</h2>
               <ComponentToImg downloadAs={this.state.download}>
                 <CoverImage {...this.state} />
@@ -225,7 +224,7 @@ class Editor extends React.Component {
 
             {/* themes section */}
 
-            <div className='h-main md:w-60 px-4 pb-4 md:border-dashed md:border-l-2 border-gray-100 bg-white'>
+            <div className='flex-none h-main md:w-60 px-4 pb-4 md:border-dashed md:border-l-2 border-gray-100 bg-white'>
               <div className='h-full w-full'>
                 <div className='flex items-center'>
                   <h2 className='text-lg pl-2 font-inter font-semibold'>主题</h2>
@@ -239,14 +238,15 @@ class Editor extends React.Component {
                   {THEMES.map((themePlaceholder) => (
                     <div
                       className={`${
-                        themePlaceholder.label === this.state.theme ? 'border-blue-400' : ''
-                      } p-1 overflow-hidden rounded-lg cursor-pointer border-2 hover:border-blue-400 duration-100`}
+                        themePlaceholder.label === this.state.theme ? 'border-blue-400 ' : ''
+                      }p-1 overflow-hidden rounded-lg cursor-pointer border-2 hover:border-blue-400 duration-100`}
                       key={themePlaceholder.label}>
                       <img
                         src={themePlaceholder.preview}
                         alt={themePlaceholder.label}
                         onClick={(e) => this.setState({ theme: themePlaceholder.label })}
                       />
+                      <div className='text-sm text-center text-gray-600 whitespace-nowrap'>{themePlaceholder.name}</div>
                     </div>
                   ))}
                 </div>
