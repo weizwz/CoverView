@@ -9,11 +9,11 @@ import Header from './Header'
 import { THEMES } from '../utils/constants'
 import { FONTS, fontLoader } from '../utils/fonts'
 
-const defaultIcon = { label: 'react', value: 'react' }
+const defaultIcon = { label: 'xiaohongshu', value: 'xiaohongshu' }
 
 const defaultSettings = {
   title: '免费、快速的封面生成器',
-  bgColor: '#409eff',
+  bgColor: '#849BFF',
   pattern: '',
   download: 'PNG',
   author: '唯知笔记',
