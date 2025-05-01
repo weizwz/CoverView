@@ -9,10 +9,10 @@ const PreviewTheme = ({ config }) => {
     <div className='w-full h-full bg-white'>
       <div className={`overflow-y-hidden flex flex-col px-4 pt-4 w-full h-full relative`} style={{ backgroundColor: bgColor }}>
         <div className={`absolute top-0 left-0 w-full h-full z-1 ${pattern} brightness-75`} />
-        <div className={`${font} h-full rounded-2xl py-6 flex flex-col content-center relative z-10`}>
+        <div className={`${font} h-full rounded-2xl flex flex-col content-center relative z-10`}>
           <h1 className={`${font} text-2xl md:text-3xl p-10 text-white font-bold text-center`}>{title}</h1>
 
-          <div className='w-10/12 group mx-auto mt-auto mb-0 shadow-lg  flex flex-col bg-white rounded-t-xl border-white'>
+          <div className='w-10/12 group mx-auto mt-auto mb-0 shadow-lg  flex flex-col rounded-t-xl border-white'>
             <div className='bg-gray-800 h-8 w-full p-2 flex items-center rounded-t-xl'>
               <div className='bg-red-400 h-3 w-3 rounded-full mx-1'></div>
               <div className='bg-yellow-400 h-3 w-3 rounded-full mx-1'></div>
@@ -34,13 +34,13 @@ const PreviewTheme = ({ config }) => {
                 <img src={image && image} className='object-cover ' alt='preview' />
               </div>
             ) : (
-              <div className='flex flex-col p-20 py-28 bg-white items-center justify-center'>
+              <div className='flex flex-col p-20 py-28 items-center justify-center'>
                 <input
                   type='file'
-                  className='text-xl cursor-pointer mb-2 bg-white rounded border'
+                  className='text-l cursor-pointer mb-2 rounded border'
                   onChange={(e) => setImage(URL.createObjectURL(e.target.files[0]))}
                 />
-                <span className=' text-center italic'>click to upload a screenshot</span>
+                <span className='text-center'>上传PC截图</span>
               </div>
             )}
           </div>
