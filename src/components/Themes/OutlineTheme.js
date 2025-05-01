@@ -1,11 +1,12 @@
 import React from 'react'
 const OutlineTheme = ({ config }) => {
-  const { title, bgColor, author, icon, font, customIcon } = config
+  const { title, bgColor, pattern, author, icon, font, customIcon } = config
 
   return (
-    <div className='w-full h-full bg-white '>
-      <div className={`overflow-y-hidden text-gray-800 px-10 h-full`} style={{ backgroundColor: bgColor }}>
-        <div className={`${font} h-full rounded-2xl py-6 flex flex-col content-center`}>
+    <div className='w-full h-full bg-white'>
+      <div className={`overflow-y-hidden text-gray-800 px-10 h-full relative`} style={{ backgroundColor: bgColor }}>
+        <div className={`absolute top-0 left-0 w-full h-full z-1 ${pattern} brightness-75`} />
+        <div className={`${font} h-full rounded-2xl py-6 flex flex-col content-center relative z-10`}>
           {customIcon ? (
             <div className='m-6'>
               <img src={customIcon} alt='img' className='rounded-full object-cover w-24 h-24 bg-white p-1 border-white' />

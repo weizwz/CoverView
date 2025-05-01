@@ -8,6 +8,7 @@ import Header from './Header'
 
 import { THEMES } from '../utils/constants'
 import { FONTS, fontLoader } from '../utils/fonts'
+import { PATTERNS } from '../utils/patterns'
 
 const defaultIcon = { label: 'xiaohongshu', value: 'xiaohongshu' }
 
@@ -139,25 +140,11 @@ class Editor extends React.Component {
                             onChange={(e) => this.setState({ pattern: e.target.value })}
                             className='focus:outline-none border text-lg p-2 rounded'
                             value={this.state.pattern}>
-                            <option>none</option>
-                            <option>graph-paper</option>
-                            <option>jigsaw</option>
-                            <option>hideout</option>
-                            <option>dots</option>
-                            <option>falling-triangles</option>
-                            <option>circuit-board</option>
-                            <option>temple</option>
-                            <option>anchors</option>
-                            <option>brickwall</option>
-                            <option>overlapping-circles</option>
-                            <option>wiggle</option>
-                            <option>tic-tac-toe</option>
-                            <option>leaf</option>
-                            <option>bubbles</option>
-                            <option>squares</option>
-                            <option>explorer</option>
-                            <option>jupiter</option>
-                            <option>sun</option>
+                            {PATTERNS.map((item) => (
+                              <option key={item.value} value={item.value}>
+                                {item.label}
+                              </option>
+                            ))}
                           </select>
                         </div>
 
