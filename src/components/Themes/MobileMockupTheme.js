@@ -13,13 +13,6 @@ const MobileMockupTheme = ({ config }) => {
 
         <div className='w-[300px] mx-auto group h-full flex flex-col relative'>
           <img className='absolute top-0 left-0 w-full z-10' src='./mobile.png' alt='background' />
-          {/* <div className='w-5/12 mx-auto group h-full shadow-lg flex flex-col bg-white border-t-8 border-x-8 border-gray-800 rounded-t-3xl'> */}
-          {/* <div className='bg-gray-800 h-8 w-full p-2 pb-3 flex items-center rounded-t'>
-            <div className='flex mx-auto items-center'>
-              <div className='bg-white h-3 w-3 rounded-full mx-1'></div>
-              <div className='bg-white h-2 w-20 rounded-full mx-1'></div>
-            </div>
-          </div> */}
           {image ? (
             <div className='group relative p-10'>
               <img src={image && image} className='object-cover rounded-2xl -translate-y-1 h-full' alt='preview' />
