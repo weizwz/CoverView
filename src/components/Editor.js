@@ -9,10 +9,11 @@ import Header from './Header'
 import { THEMES } from '../utils/constants'
 import { FONTS, fontLoader } from '../utils/fonts'
 import { PATTERNS } from '../utils/patterns'
+import { COLORTHEMES } from '../utils/colorThemes'
 
 const defaultSettings = {
   title: '免费、快速的封面生成器',
-  bgColor: '#80D8CF',
+  bgColor: COLORTHEMES[0].bgColor,
   pattern: '',
   download: 'PNG',
   author: '唯知笔记',
@@ -43,8 +44,8 @@ class Editor extends React.Component {
     })
   }
 
-  getRandomTheme = (theme, Pattern) => {
-    this.setState({ bgColor: theme.bgColor, borderColor: theme.bdColor, pattern: Pattern })
+  getRandomTheme = (settings) => {
+    this.setState({ ...settings })
   }
 
   // 监听字体变化
@@ -190,7 +191,7 @@ class Editor extends React.Component {
             </div>
 
             <div className='h-main flex flex-1 px-8 flex-col items-center bg-gray-50'>
-              <h2 className='text-lg p-2 font-inter font-semibold'>封面预览</h2>
+              <h2 className='text-lg p-2 font-semibold'>封面预览</h2>
               <ComponentToImg downloadAs={this.state.download}>
                 <CoverImage {...this.state} />
               </ComponentToImg>
@@ -200,11 +201,9 @@ class Editor extends React.Component {
 
             <div className='flex-none h-main md:w-60 px-4 pb-4 md:border-dashed md:border-l-2 border-gray-100 bg-white'>
               <div className='h-full w-full'>
-                <div className='flex items-center'>
-                  <h2 className='text-lg pl-2 font-inter font-semibold'>主题</h2>
-                  <div className='ml-auto mr-1 p-2'>
-                    <RandomTheme onThemeChange={this.getRandomTheme} />
-                  </div>
+                <div className='w-full flex justify-between items-center'>
+                  <h2 className='text-lg p-2 font-semibold'>主题</h2>
+                  <RandomTheme onThemeChange={this.getRandomTheme} />
                 </div>
 
                 <div className='h-theme flex gap-2 flex-wrap justify-center overflow-y-scroll'>
