@@ -1,9 +1,8 @@
 import React, { useContext, useState } from 'react'
-// import { exportComponentAsPNG } from "react-component-export-image";
 import './CoverImage.css'
 import { ImgContext } from '../utils/ImgContext'
 import unsplash from '../utils/unsplashConfig'
-import domtoimage from 'dom-to-image'
+import html2canvas from 'html2canvas'
 
 const ComponentToImg = (props) => {
   const [loading, setLoading] = useState(false)
@@ -17,32 +16,14 @@ const ComponentToImg = (props) => {
     a.download = `cover.png`
     document.body.appendChild(a)
     setLoading(false)
-
     a.click()
     document.body.removeChild(a)
   }
 
   const downloadImage = async () => {
-    // exportComponentAsPNG(componentRef, 'cover')
     setLoading(true)
 
-    const element = componentRef.current
-
-    // console.log(element)
-    // console.log(element.offsetHeight)
-
-    let data = await domtoimage.toPng(componentRef.current, {
-      height: element.offsetHeight * 2,
-      width: element.offsetWidth * 2,
-      style: {
-        transform: 'scale(' + 2 + ')',
-        transformOrigin: 'top left',
-        width: element.offsetWidth + 'px',
-        height: element.offsetHeight + 'px'
-      }
-    })
-
-    // console.log(data)
+    let data = await getData(componentRef.current)
     await saveImage(data)
 
     if (unsplashImage) {
@@ -50,12 +31,25 @@ const ComponentToImg = (props) => {
     }
   }
 
+  async function getData(element) {
+    return await html2canvas(element, {
+      useCORS: true,
+      scale: (props.scale * 0.1).toFixed(1),
+      backgroundColor: null,
+      allowTaint: true,
+      height: element.offsetHeight,
+      width: element.offsetWidth
+    }).then((canvas) => {
+      return canvas.toDataURL('image/png')
+    })
+  }
+
   return (
     <React.Fragment>
-      <div ref={componentRef} className='p-4 bg-white'>{props.children}</div>
-      <button
-        className='border p-2 bg-gray-700 hover:bg-gray-800 flex items-center text-white text-xl rounded-lg m-4 px-4'
-        onClick={() => downloadImage()}>
+      <div ref={componentRef} className='p-4 bg-white'>
+        {props.children}
+      </div>
+      <button className='border p-2 bg-gray-700 hover:bg-gray-800 flex items-center text-white text-xl rounded-lg m-4 px-4' onClick={() => downloadImage()}>
         <span>
           {loading ? (
             <svg
@@ -68,17 +62,8 @@ const ComponentToImg = (props) => {
               <path d='M12 22c5.421 0 10-4.579 10-10h-2c0 4.337-3.663 8-8 8s-8-3.663-8-8c0-4.336 3.663-8 8-8V2C6.579 2 2 6.58 2 12c0 5.421 4.579 10 10 10z'></path>
             </svg>
           ) : (
-            <svg
-              className='w-6 h-6'
-              fill='none'
-              stroke='currentColor'
-              viewBox='0 0 24 24'
-              xmlns='http://www.w3.org/2000/svg'>
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth='2'
-                d='M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4'></path>
+            <svg className='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
+              <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4'></path>
             </svg>
           )}
         </span>

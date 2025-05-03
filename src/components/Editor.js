@@ -1,7 +1,7 @@
 import React from 'react'
 import CoverImage from './CoverImage'
 import ComponentToImg from './ComponentToImg'
-import IconSelect from './IconSelect'
+import IconSelect, { defaultIcon } from './IconSelect'
 import RandomTheme from './RandomTheme'
 import { ImgProvider } from '../utils/ImgContext'
 import Header from './Header'
@@ -9,8 +9,6 @@ import Header from './Header'
 import { THEMES } from '../utils/constants'
 import { FONTS, fontLoader } from '../utils/fonts'
 import { PATTERNS } from '../utils/patterns'
-
-const defaultIcon = { label: 'xiaohongshu', value: 'xiaohongshu' }
 
 const defaultSettings = {
   title: '免费、快速的封面生成器',
@@ -36,7 +34,12 @@ class Editor extends React.Component {
   handleReset = () => {
     this.setState({
       ...defaultSettings,
-      icon: defaultIcon
+      // 标题、作者、图标、主题等不用重置
+      title: this.state.title,
+      author: this.state.author,
+      icon: this.state.icon,
+      theme: this.state.theme,
+      platform: this.state.platform,
     })
   }
 
@@ -89,7 +92,7 @@ class Editor extends React.Component {
 
                       <div className='flex flex-col m-2 '>
                         <span className='font-medium text-sm pb-1'>图标</span>
-                        <IconSelect defaultIcon={defaultIcon} onChange={(selectedOption) => this.setState({ icon: selectedOption })} />
+                        <IconSelect onChange={(selectedOption) => this.setState({ icon: selectedOption })} />
                       </div>
                       <div className='w-full'>
                         {this.state.icon.label === 'upload your own' ? (
