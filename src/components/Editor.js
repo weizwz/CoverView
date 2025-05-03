@@ -65,7 +65,7 @@ class Editor extends React.Component {
 
         <ImgProvider>
           <div className='flex md:flex-row flex-col'>
-            <div className='flex-none h-main bg-white flex flex-col md:w-3/12 md:border-dashed md:border-r-2 border-gray-100'>
+            <div className='h-main bg-white flex-none flex flex-col md:w-3/12 md:border-dashed md:border-r-2 border-gray-100 overflow-y-auto'>
               <div>
                 <div className='flex md:flex-row flex-col'>
                   <div className='bg-white font-Inter w-full p-2'>
@@ -190,7 +190,7 @@ class Editor extends React.Component {
 							</div> */}
             </div>
 
-            <div className='h-main flex flex-1 px-8 flex-col items-center bg-gray-50'>
+            <div className='h-main flex-none flex flex-col items-center bg-gray-50 px-8 overflow-y-auto'>
               <h2 className='text-lg p-2 font-semibold'>封面预览</h2>
               <ComponentToImg downloadAs={this.state.download}>
                 <CoverImage {...this.state} />
@@ -199,25 +199,23 @@ class Editor extends React.Component {
 
             {/* themes section */}
 
-            <div className='h-main p-4 md:border-dashed md:border-l-2 border-gray-100 bg-white'>
-              <div className='h-full w-full'>
-                <div className='w-full flex justify-between items-center'>
-                  <h2 className='text-lg p-2 font-semibold'>主题</h2>
-                  <RandomTheme onThemeChange={this.getRandomTheme} />
-                </div>
+            <div className='h-main px-4 pb-4 md:border-dashed md:border-l-2 border-gray-100 bg-white overflow-y-auto'>
+              <div className='w-full flex justify-between items-center'>
+                <h2 className='text-lg p-2 font-semibold'>主题</h2>
+                <RandomTheme onThemeChange={this.getRandomTheme} />
+              </div>
 
-                <div className='h-theme flex gap-2 flex-wrap justify-center overflow-y-scroll'>
-                  {THEMES.map((themePlaceholder) => (
-                    <div
-                      className={`${
-                        themePlaceholder.label === this.state.theme ? 'border-blue-400 ' : ''
-                      }p-1 overflow-hidden rounded-lg cursor-pointer border-2 hover:border-blue-400 duration-100`}
-                      key={themePlaceholder.label}>
-                      <img src={themePlaceholder.preview} alt={themePlaceholder.label} onClick={(e) => this.setState({ theme: themePlaceholder.label })} />
-                      <div className='text-sm text-center text-gray-600 whitespace-nowrap'>{themePlaceholder.name}</div>
-                    </div>
-                  ))}
-                </div>
+              <div className='flex gap-2 flex-wrap justify-center'>
+                {THEMES.map((themePlaceholder) => (
+                  <div
+                    className={`${
+                      themePlaceholder.label === this.state.theme ? 'border-blue-400 ' : ''
+                    }p-1 overflow-hidden rounded-lg cursor-pointer border-2 hover:border-blue-400 duration-100`}
+                    key={themePlaceholder.label}>
+                    <img src={themePlaceholder.preview} alt={themePlaceholder.label} onClick={(e) => this.setState({ theme: themePlaceholder.label })} />
+                    <div className='text-sm text-center text-gray-600 whitespace-nowrap'>{themePlaceholder.name}</div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

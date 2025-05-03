@@ -27,10 +27,7 @@
 
 @media (min-width: 768px) {
   .h-main {
-    min-height: calc(100vh - 66px);
-  }
-  .h-theme {
-    max-height: calc(100vh - 142px);
+    height: calc(100vh - 66px);
   }
 }
 
