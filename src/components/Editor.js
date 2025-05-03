@@ -10,6 +10,7 @@ import { THEMES } from '../utils/constants'
 import { FONTS, fontLoader } from '../utils/fonts'
 import { PATTERNS } from '../utils/patterns'
 import { COLORTHEMES } from '../utils/colorThemes'
+import { SIZES } from '../utils/sizes'
 
 const defaultSettings = {
   title: '免费、快速的封面生成器',
@@ -21,7 +22,7 @@ const defaultSettings = {
   font: FONTS[0].value,
   theme: THEMES[0].label,
   customIcon: '',
-  platform: 'hashnode'
+  size: SIZES[2].value
 }
 
 class Editor extends React.Component {
@@ -40,7 +41,7 @@ class Editor extends React.Component {
       author: this.state.author,
       icon: this.state.icon,
       theme: this.state.theme,
-      platform: this.state.platform,
+      size: this.state.size,
     })
   }
 
@@ -156,11 +157,14 @@ class Editor extends React.Component {
                           <span className='font-medium text-sm pb-1'>尺寸</span>
 
                           <select
-                            onChange={(e) => this.setState({ platform: e.target.value })}
-                            value={this.state.platform}
+                            onChange={(e) => this.setState({ size: e.target.value })}
+                            value={this.state.size}
                             className='focus:outline-none text-gray-700 text-lg p-2 rounded border'>
-                            <option>hashnode</option>
-                            <option>dev</option>
+                            {SIZES.map((item) => (
+                              <option key={item.value} value={item.value}>
+                                {item.label}
+                              </option>
+                            ))}
                           </select>
                         </div>
                       </div>
@@ -190,7 +194,7 @@ class Editor extends React.Component {
 							</div> */}
             </div>
 
-            <div className='h-main flex-none flex flex-col items-center bg-gray-50 px-8 overflow-y-auto'>
+            <div className='h-main md:w-[880px] flex-none flex flex-col items-center bg-gray-50 px-8 relative overflow-y-auto'>
               <h2 className='text-lg p-2 font-semibold'>封面预览</h2>
               <ComponentToImg downloadAs={this.state.download}>
                 <CoverImage {...this.state} />

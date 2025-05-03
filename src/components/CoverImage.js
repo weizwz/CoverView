@@ -33,7 +33,7 @@ const CoverImage = (props) => {
     }
   }
 
-  return <div className={`md:scale-100 scale-50 w-full ${props.platform}`}>{selectTheme(theme)}</div>
+  return <div className={`md:scale-100 scale-50 w-full ${props.size}`}>{selectTheme(theme)}</div>
 }
 
 export default CoverImage

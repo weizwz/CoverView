@@ -9,11 +9,11 @@ const BackgroundTheme = ({ config }) => {
   return (
     <div className='overflow-y-hidden flex flex-col w-full h-full' style={{ backgroundColor: bgColor }}>
       {unsplashImage ? (
-        <div className='relative flex group'>
-          <div className='h-max w-full '>
+        <div className='w-full h-full relative flex group'>
+          <div className='h-full w-full'>
             <img
               src={unsplashImage.url && unsplashImage.url}
-              className=' object-cover h-full w-full  '
+              className='object-cover h-full w-full'
               alt='preview'
             />
           </div>
