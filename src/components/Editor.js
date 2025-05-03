@@ -74,7 +74,7 @@ class Editor extends React.Component {
                         <textarea
                           type='text'
                           value={this.state.title}
-                          placeholder='Enter title here'
+                          placeholder='请输入标题'
                           className='focus:outline-none border text-gray-700 text-lg  rounded p-2 h-24'
                           onChange={(e) => this.setState({ title: e.target.value })}
                         />
@@ -85,7 +85,7 @@ class Editor extends React.Component {
                         <input
                           type='text'
                           value={this.state.author}
-                          placeholder='Author'
+                          placeholder='请输入作者'
                           className='focus:outline-none border text-gray-700 text-lg rounded bg-white p-2'
                           onChange={(e) => this.setState({ author: e.target.value })}></input>
                       </div>
