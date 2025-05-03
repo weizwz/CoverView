@@ -213,8 +213,8 @@ class Editor extends React.Component {
                 {THEMES.map((themePlaceholder) => (
                   <div
                     className={`${
-                      themePlaceholder.label === this.state.theme ? 'border-blue-400 ' : ''
-                    }p-1 overflow-hidden rounded-lg cursor-pointer border-2 hover:border-blue-400 duration-100`}
+                      themePlaceholder.label === this.state.theme ? 'border-shadow' : 'border-gray-200'
+                    } p-1 overflow-hidden rounded-lg cursor-pointer border border-hover duration-100`}
                     key={themePlaceholder.label}>
                     <img src={themePlaceholder.preview} alt={themePlaceholder.label} onClick={(e) => this.setState({ theme: themePlaceholder.label })} />
                     <div className='text-sm text-center text-gray-600 whitespace-nowrap'>{themePlaceholder.name}</div>

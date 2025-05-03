@@ -1,13 +1,25 @@
-@import "tailwindcss/preflight";
-@tailwind utilities;
+@import 'tailwindcss/preflight' layer(utilities);
+@import 'tailwindcss/utilities' layer(utilities);
 
-input,
-textarea {
-  
+:root {
+  --color-blue-main: #3B82F6;
 }
 
 .h-100 {
   height: 36rem;
+}
+
+.border {
+  border: solid 1px #cccccc;
+}
+.border:hover {
+  border-color: #B2B2B2;
+}
+.border:focus,
+.border-shadow,
+.border-hover:hover  {
+  border-color: var(--color-blue-main);
+  box-shadow: 0 0 0 1px var(--color-blue-main);
 }
 
 /* Solve the problem of poor display effect caused by the height of the cover image exceeding the range under the first theme */

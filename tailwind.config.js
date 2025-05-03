@@ -16,7 +16,7 @@ module.exports = {
         zqfs: ['"Zhuque Fangsong (technical preview)"', 'sans-serif'],
         yffyt: ['YFFYT', 'sans-serif'],
         jcyt: ['"JiangChengYuanTi"', 'sans-serif'],
-        jmm: ['"JetBrains Maple Mono"', 'sans-serif'],
+        jmm: ['"JetBrains Maple Mono"', 'sans-serif']
       }
     }
   },
