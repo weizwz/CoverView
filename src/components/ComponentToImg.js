@@ -11,9 +11,10 @@ const ComponentToImg = (props) => {
   const componentRef = React.createRef()
 
   async function saveImage(data) {
+    const getCurrentDate = () => new Date().toISOString().split('T')[0]
     var a = document.createElement('A')
     a.href = data
-    a.download = `cover.png`
+    a.download = `cover-${getCurrentDate()}.png`
     document.body.appendChild(a)
     setLoading(false)
     a.click()
