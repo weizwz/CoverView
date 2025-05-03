@@ -8,7 +8,7 @@ const PreviewTheme = ({ config }) => {
   return (
     <div className='w-full h-full bg-white'>
       <div className={`overflow-y-hidden flex flex-col w-full h-full relative`} style={{ backgroundColor: bgColor }}>
-        <div className={`absolute top-0 left-0 w-full h-full z-1 ${pattern} brightness-75`} />
+        <div className={`absolute top-0 left-0 w-full h-full z-1 ${pattern} filter-opacity-50`} />
         <div className={`${font} h-full rounded-2xl flex flex-col items-center relative z-10`}>
           <h1 className={`${font} text-2xl md:text-3xl pt-20 text-white font-bold`}>{title}</h1>
 

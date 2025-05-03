@@ -5,7 +5,7 @@ const OutlineTheme = ({ config }) => {
   return (
     <div className='w-full h-full bg-white'>
       <div className={`overflow-y-hidden text-gray-800 px-10 h-full relative`} style={{ backgroundColor: bgColor }}>
-        <div className={`absolute top-0 left-0 w-full h-full z-1 ${pattern} brightness-75`} />
+        <div className={`absolute top-0 left-0 w-full h-full z-1 ${pattern} filter-opacity-50`} />
         <div className={`${font} h-full rounded-2xl py-6 flex flex-col content-center relative z-10`}>
           {customIcon ? (
             <div className='m-6'>

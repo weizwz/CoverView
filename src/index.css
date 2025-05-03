@@ -21,6 +21,10 @@
   height: 35rem;
 }
 
+.filter-opacity-50 {
+  filter: opacity(0.5);
+}
+
 @media (min-width: 768px) {
   .h-main {
     min-height: calc(100vh - 66px);
