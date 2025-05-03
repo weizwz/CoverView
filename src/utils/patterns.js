@@ -12,16 +12,16 @@ export const PATTERNS = [
     value: 'jigsaw',
   },
   {
+    label: '幸运星',
+    value: 'star',
+  },
+  {
+    label: '小甜点',
+    value: 'dessert',
+  },
+  {
     label: '叉号集',
     value: 'hideout',
-  },
-  {
-    label: '小圆点',
-    value: 'dots',
-  },
-  {
-    label: '倒三角',
-    value: 'falling-triangles',
   },
   {
     label: '电路板',
@@ -40,20 +40,8 @@ export const PATTERNS = [
     value: 'brickwall',
   },
   {
-    label: '双圆环',
-    value: 'overlapping-circles',
-  },
-  {
-    label: '水波纹',
-    value: 'wiggle',
-  },
-  {
     label: '井字棋',
     value: 'tic-tac-toe',
-  },
-  {
-    label: '小树叶',
-    value: 'leaf',
   },
   {
     label: '吹泡沫',
