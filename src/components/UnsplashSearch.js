@@ -60,7 +60,7 @@ const UnsplashSearch = ({ largeImgPreview }) => {
         </form>
       </div>
 
-      <div className={`overflow-y-scroll overflow-x-hidden rounded-lg mb-4`} style={{ height: 'calc(100% - 54px)' }}>
+      <div className={`overflow-y-auto overflow-x-hidden rounded-lg mb-4`} style={{ height: 'calc(100% - 54px)' }}>
         <div className={`grid gap-4 ${largeImgPreview ? 'grid-cols-4' : 'grid-cols-3'}`}>
           {imageList.map((image) => {
             return (

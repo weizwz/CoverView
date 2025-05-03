@@ -30,9 +30,9 @@ const BackgroundTheme = ({ config }) => {
               </svg>
             </button>
 
-            <div className={`${font} px-10 pt-32  text-left rounded-xl h-full p-4 flex flex-col`}>
+            <div className={`${font} px-10 text-left rounded-xl h-full p-4 flex flex-col justify-center`}>
               <h1 className=' md:text-5xl text-center text-2xl font-bold text-white'>{title}</h1>
-              <div className='flex flex-col items-center py-10  '>
+              <div className='flex flex-col items-center pt-10'>
                 <h2 className='text-xl  font-semibold text-left text-white '>{author}</h2>
                 {customIcon ? (
                   <div className=' '>

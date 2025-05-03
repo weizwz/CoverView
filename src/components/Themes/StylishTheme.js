@@ -32,7 +32,7 @@ const StylishTheme = ({ config }) => {
         </div>
         <div className='w-1/2 h-full'>
           {unsplashImage ? (
-            <div className='relative w-full h-max flex group'>
+            <div className='relative w-full h-full flex group'>
               <img
                 src={unsplashImage.url && unsplashImage.url}
                 className='object-cover w-full h-full'
@@ -51,7 +51,7 @@ const StylishTheme = ({ config }) => {
               </button>
             </div>
           ) : (
-            <div className='flex h-max w-full flex-col bg-white items-center justify-center'>
+            <div className='flex w-full h-full flex-col bg-white items-center justify-center'>
               <UnsplashSearch />
             </div>
           )}
