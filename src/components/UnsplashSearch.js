@@ -30,7 +30,7 @@ const UnsplashSearch = ({ largeImgPreview }) => {
   }, [param])
 
   return (
-    <div className='w-full h-full flex flex-col bg-white items-center justify-center'>
+    <div className='w-full h-full p-4 flex flex-col bg-white items-center justify-center'>
       <div className='w-full flex items-center mb-4'>
         <form
           onSubmit={(e) => handleSearchSubmit(e)}

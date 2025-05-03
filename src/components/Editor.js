@@ -68,7 +68,7 @@ class Editor extends React.Component {
             <div className='flex-none h-main bg-white flex flex-col md:w-3/12 md:border-dashed md:border-r-2 border-gray-100'>
               <div>
                 <div className='flex md:flex-row flex-col'>
-                  <div className='bg-white font-Inter w-full p-4 '>
+                  <div className='bg-white font-Inter w-full p-2'>
                     <div>
                       <div className='m-2 flex flex-col'>
                         <span className='font-medium text-sm pb-1'>标题</span>
@@ -199,7 +199,7 @@ class Editor extends React.Component {
 
             {/* themes section */}
 
-            <div className='flex-none h-main md:w-60 px-4 pb-4 md:border-dashed md:border-l-2 border-gray-100 bg-white'>
+            <div className='h-main p-4 md:border-dashed md:border-l-2 border-gray-100 bg-white'>
               <div className='h-full w-full'>
                 <div className='w-full flex justify-between items-center'>
                   <h2 className='text-lg p-2 font-semibold'>主题</h2>

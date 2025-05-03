@@ -4,9 +4,9 @@ import logo from '../assets/icons/logo.png'
 
 const Header = () => {
   return (
-    <div className='bg-white text-xl p-2 md:py-4 flex  border-dashed border-b-2 border-gray-100'>
+    <div className='bg-white text-xl p-4 flex  border-dashed border-b-2 border-gray-100'>
       <Link to='/' className='flex items-center'>
-        <img src={logo} alt='logo' className='w-8 h-8 mx-4' />
+        <img src={logo} alt='logo' className='w-8 h-8 mr-4' />
         <h1 className='font-semibold'>封面生成器</h1>
       </Link>
 
@@ -18,7 +18,7 @@ const Header = () => {
           href='https://github.com/weizwz/CoverView'
           target='_blank'
           rel='noreferrer'
-          className='bg-gray-700 hover:bg-gray-800 px-4 rounded-full p-1 text-white md:text-sm md:flex hidden items-center text-xs mx-2 font-Nunito'>
+          className='bg-gray-700 hover:bg-gray-800 px-4 rounded-full p-1 text-white md:text-sm md:flex hidden items-center text-xs'>
           ⭐ Star on Github
         </a>
       </div>
