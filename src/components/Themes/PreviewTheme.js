@@ -10,7 +10,7 @@ const PreviewTheme = ({ config }) => {
       <div className={`overflow-y-hidden flex flex-col w-full h-full relative`} style={{ backgroundColor: bgColor }}>
         <div className={`absolute top-0 left-0 w-full h-full z-1 ${pattern} brightness-75`} />
         <div className={`${font} h-full rounded-2xl flex flex-col items-center relative z-10`}>
-          <h1 className={`${font} text-2xl md:text-3xl pt-16 pb-4 text-white font-bold`}>{title}</h1>
+          <h1 className={`${font} text-2xl md:text-3xl pt-20 text-white font-bold`}>{title}</h1>
 
           <div className='w-[700px] h-full group flex flex-col relative'>
             <img className='absolute top-0 left-0 w-full z-10' src='./pc.png' alt='background' />
